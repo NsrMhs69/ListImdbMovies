@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/row"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_140sdp"
+    android:layout_marginTop="@dimen/_5sdp"
+    tools:ignore="ContentDescription">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp"
+        android:background="@drawable/bg_row"
+        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"/>
+    <LinearLayout
+        android:id="@+id/relative"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_toRightOf="@+id/pic_layout"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/name_movie"
+            android:gravity="left"
+            android:textColor="#FFD401"
+            android:textSize="@dimen/_14sdp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/year_movie"
+            android:gravity="left"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12sdp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/type_movie"
+            android:gravity="left"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12sdp"
+            />
+
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/pic_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/pic"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_115sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"/>
+        <ProgressBar
+            android:id="@+id/progress"
+            android:theme="@style/AppTheme.WhiteAccent"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_centerInParent="true"
+            android:visibility="visible"
+            tools:visibility="visible" />
+    </RelativeLayout>
+
+</RelativeLayout>

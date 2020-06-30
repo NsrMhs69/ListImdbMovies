@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Batman Movies</string>
+    <string name="no_net">There is a problem , please check you internet</string>
+    <string name="ok">Ok</string>
+</resources>

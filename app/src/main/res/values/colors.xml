@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#009788</color>
+    <color name="white">#FFFFFF</color>
+    <color name="selected_item">#80FFFFFF</color>
+    <color name="bg">#303030</color>
+    <color name="dark_blue">#1F313D</color>
+    <color name="yellow_imdb">#F5C600</color>
+    <color name="primary_dark">#303F9F</color>
+    <color name="primary_light">#C5CAE9</color>
+    <color name="accent">#F5C600</color>
+    <color name="primary_text">#0C0B0B</color>
+    <color name="secondary_text">#727272</color>
+    <color name="divider">#B6B6B6</color>
+    <color name="hint">#929292</color>
+
+
+
+    <color name="colorPrimary">#8BC34A</color>
+    <color name="yellow">#FFEB3B</color>
+    <color name="colorPrimaryDark">#7C43AF</color>
+    <color name="colorAccent">#e91e63</color>
+    <color name="colorPrimaryText">#FFFFFF</color>
+    <color name="colorWindowBackground">#979997</color>
+    <color name="transparent">#29000000</color>
+    <color name="txt">#424242</color>
+</resources>
