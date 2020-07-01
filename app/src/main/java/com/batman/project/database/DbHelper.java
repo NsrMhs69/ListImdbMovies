@@ -131,7 +131,7 @@ public class DbHelper extends SQLiteOpenHelper {
         open();
         Cursor cursor = sqLiteDatabase.rawQuery("select * from " + TBL_DETAIL + " where idImdb='" + id + "' group by id", null);
         while (cursor.moveToNext()) {
-            movieList.add(new Details(Cursor.getInt(cursor.getColumnIndex(IDColumn)),
+            movieList.add(new Details(cursor.getInt(cursor.getColumnIndex(IDColumn)),
                     cursor.getString(cursor.getColumnIndex(IMDBColumn)),
                     cursor.getString(cursor.getColumnIndex(ageColumn)),
                     cursor.getString(cursor.getColumnIndex(releaseColumn)),
