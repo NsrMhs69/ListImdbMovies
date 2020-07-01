@@ -110,18 +110,18 @@ public class DbHelper extends SQLiteOpenHelper {
         List<Movie> movieList = new ArrayList<>();
         movieList.clear();
         open();
-        Cursor cityCursor = sqLiteDatabase.rawQuery("SELECT * FROM data", null);
-        while (cityCursor.moveToNext()) {
-            movieList.add(new Movie(cityCursor.getInt(cityCursor.getColumnIndex(IDColumn)),
-                    cityCursor.getString(cityCursor.getColumnIndex(IMDBColumn)),
-                    cityCursor.getString(cityCursor.getColumnIndex(titleColumn)),
-                    cityCursor.getString(cityCursor.getColumnIndex(yearColumn)),
-                    cityCursor.getString(cityCursor.getColumnIndex(typeColumn)),
-                    cityCursor.getString(cityCursor.getColumnIndex(posterColumn))
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM data", null);
+        while (cursor.moveToNext()) {
+            movieList.add(new Movie(cursor.getInt(cursor.getColumnIndex(IDColumn)),
+                    cursor.getString(cursor.getColumnIndex(IMDBColumn)),
+                    cursor.getString(cursor.getColumnIndex(titleColumn)),
+                    cursor.getString(cursor.getColumnIndex(yearColumn)),
+                    cursor.getString(cursor.getColumnIndex(typeColumn)),
+                    cursor.getString(cursor.getColumnIndex(posterColumn))
 
             ));
         }
-        cityCursor.close();
+        cursor.close();
         sqLiteDatabase.close();
         return movieList;
     }
@@ -129,23 +129,23 @@ public class DbHelper extends SQLiteOpenHelper {
         List<Details> movieList = new ArrayList<>();
         movieList.clear();
         open();
-        Cursor cityCursor = sqLiteDatabase.rawQuery("select * from " + TBL_DETAIL + " where idImdb='" + id + "' group by id", null);
-        while (cityCursor.moveToNext()) {
-            movieList.add(new Details(cityCursor.getInt(cityCursor.getColumnIndex(IDColumn)),
-                    cityCursor.getString(cityCursor.getColumnIndex(IMDBColumn)),
-                    cityCursor.getString(cityCursor.getColumnIndex(ageColumn)),
-                    cityCursor.getString(cityCursor.getColumnIndex(releaseColumn)),
-                    cityCursor.getString(cityCursor.getColumnIndex(runtimeColumn)),
-                    cityCursor.getString(cityCursor.getColumnIndex(genreColumn)),
-                    cityCursor.getString(cityCursor.getColumnIndex(directorColumn)),
-                    cityCursor.getString(cityCursor.getColumnIndex(writerColumn)),
-                    cityCursor.getString(cityCursor.getColumnIndex(actorsColumn)),
-                    cityCursor.getString(cityCursor.getColumnIndex(ratingimdbColumn)),
-                    cityCursor.getString(cityCursor.getColumnIndex(voteColumn))
+        Cursor cursor = sqLiteDatabase.rawQuery("select * from " + TBL_DETAIL + " where idImdb='" + id + "' group by id", null);
+        while (cursor.moveToNext()) {
+            movieList.add(new Details(Cursor.getInt(cursor.getColumnIndex(IDColumn)),
+                    cursor.getString(cursor.getColumnIndex(IMDBColumn)),
+                    cursor.getString(cursor.getColumnIndex(ageColumn)),
+                    cursor.getString(cursor.getColumnIndex(releaseColumn)),
+                    cursor.getString(cursor.getColumnIndex(runtimeColumn)),
+                    cursor.getString(cursor.getColumnIndex(genreColumn)),
+                    cursor.getString(cursor.getColumnIndex(directorColumn)),
+                    cursor.getString(cursor.getColumnIndex(writerColumn)),
+                    cursor.getString(cursor.getColumnIndex(actorsColumn)),
+                    cursor.getString(cursor.getColumnIndex(ratingimdbColumn)),
+                    cursor.getString(cursor.getColumnIndex(voteColumn))
 
             ));
         }
-        cityCursor.close();
+        cursor.close();
         sqLiteDatabase.close();
         return movieList;
     }
