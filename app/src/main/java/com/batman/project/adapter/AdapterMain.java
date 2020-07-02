@@ -93,6 +93,7 @@ public class AdapterMain extends RecyclerView.Adapter<AdapterMain.SecondCollecti
                             .load(url)
                             .fit()
                             .centerCrop()
+                            .placeholder(R.drawable.logo)
                             .into(holder.pic, new Callback() {
                                 @Override
                                 public void onSuccess() {
