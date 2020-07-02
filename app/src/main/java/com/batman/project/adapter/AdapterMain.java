@@ -79,24 +79,24 @@ public class AdapterMain extends RecyclerView.Adapter<AdapterMain.SecondCollecti
 
             }
         });
-        try {
+         try {
             String filename = getFileName(Uri.parse(movie.getPoster()));
             ContextWrapper cw = new ContextWrapper(context);
             final File directory = cw.getDir("mydir", Context.MODE_PRIVATE);
             final File myImageFile = new File(directory, filename); // Create image file
-
             String url = movie.getPoster();
-            if (url != null && !url.isEmpty()) {
 
-                Picasso.with(context)
-                        .load(url)
-                        .fit()
-                        .centerCrop()
-                        .into(holder.pic, new Callback() {
-                            @Override
-                            public void onSuccess() {
-                                holder.progress.setVisibility(View.GONE);
-                                if (!myImageFile.exists()){
+            if (!myImageFile.exists()) {
+                if (url != null && !url.isEmpty()) {
+                    Picasso.with(context)
+                            .load(url)
+                            .fit()
+                            .centerCrop()
+                            .into(holder.pic, new Callback() {
+                                @Override
+                                public void onSuccess() {
+                                    holder.progress.setVisibility(View.GONE);
+
                                     BitmapDrawable draw = (BitmapDrawable) holder.pic.getDrawable();
                                     Bitmap bitmap = draw.getBitmap();
 
@@ -118,19 +118,27 @@ public class AdapterMain extends RecyclerView.Adapter<AdapterMain.SecondCollecti
                                     } catch (IOException e) {
                                         e.printStackTrace();
                                     }
+
                                 }
 
-                            }
-
-                            @Override
-                            public void onError() {
-                                holder.progress.setVisibility(View.GONE);
-                            }
-                        });
+                                @Override
+                                public void onError() {
+                                    holder.progress.setVisibility(View.GONE);
+                                }
+                            });
+                } else {
+                    holder.progress.setVisibility(View.INVISIBLE);
+                    holder.pic.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_launcher));
+                }
             } else {
-                holder.progress.setVisibility(View.INVISIBLE);
-                holder.pic.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_launcher));
+                try {
+                    //get the images from directory
+                    holder.progress.setVisibility(View.INVISIBLE);
+                    holder.pic.setImageBitmap(BitmapFactory.decodeFile(myImageFile.getAbsolutePath()));
+                } catch (Exception e) {
+                }
             }
+
         } catch (Exception e) {
         }
 
