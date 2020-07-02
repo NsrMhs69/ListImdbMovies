@@ -60,6 +60,7 @@
             android:layout_height="@dimen/_115sdp"
             android:layout_marginLeft="@dimen/_20sdp"
             android:layout_alignParentLeft="true"
+            android:background="@drawable/bg_row"
             android:layout_centerVertical="true"/>
         <ProgressBar
             android:id="@+id/progress"
