@@ -126,6 +126,7 @@ public class DetailsActivity extends AppCompatActivity {
                     //show dialog
                     showExitDialog(DetailsActivity.this);
                     progress.setVisibility(View.GONE);
+                     main.setVisibility(View.GONE);
                 }
             }
         } else {
@@ -134,6 +135,7 @@ public class DetailsActivity extends AppCompatActivity {
             } else {
                 progress.setVisibility(View.GONE);
                 showExitDialog(DetailsActivity.this);
+                 main.setVisibility(View.GONE);
             }
 
         }
@@ -253,7 +255,7 @@ public class DetailsActivity extends AppCompatActivity {
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
         dialog.setContentView(R.layout.no_internet_dialog);
-        dialog.setCancelable(true);
+        dialog.setCancelable(false);
         final TextView desc = (TextView) dialog.findViewById(R.id.desc);
 
         final TextView ok = (TextView) dialog.findViewById(R.id.ok);
